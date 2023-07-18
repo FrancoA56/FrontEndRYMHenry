@@ -44,7 +44,7 @@ export default function App() {
        }
      })
      .catch((error) => {
-       if (error.response && error.response.status === 404) {
+       if (error.response && error.response.status >= 400) {
          window.alert('¡No hay personajes con este ID!');
        } else {
          console.error(error);

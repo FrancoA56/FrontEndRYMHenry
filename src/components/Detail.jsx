@@ -95,8 +95,8 @@ export default function Detail() {
               <Stat>Status: {character.status}</Stat>
               <Stat>Specie: {character.species}</Stat>
               <Stat>Gender: {character.gender}</Stat>
-              <Stat>Origin: {character.origin?.name}</Stat>
-              <Stat>Location: {character.location?.name}</Stat>
+              <Stat>Origin: {character.origin}</Stat>
+              <Stat>Location: {character.location}</Stat>
             </Stats>
           </Tarjeta>
         </>
