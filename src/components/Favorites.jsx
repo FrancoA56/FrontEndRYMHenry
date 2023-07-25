@@ -1,10 +1,64 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Card from "./Card";
+import FavoriteCard from "./FavoritesCard";
 import { filterCards, orderCards } from "../Redux/actions";
+import styled from "styled-components";
+
+const Tarjetas = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-left: 50px;
+   margin-right: 50px;
+`;
+
+const Titulo = styled.h1`
+  font-size: 3rem;
+  font-weight: 700;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  margin-left: 35%;
+  margin-right: 35%;
+  padding-top: 15px;
+  font-family: "Josefin Sans";
+  color: rgb(116, 245, 57);
+  background-color: rgb(61, 0, 71, 0.5);
+  border-radius: 100px;
+  transition: background-color 0.5s ease-in-out;
+
+  &:hover {
+    background-color: rgb(40, 12, 53);
+  }
+`;
+
+const StyledSelect = styled.select`
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background-color: rgb(61, 0, 71, 0.5);
+  color: rgb(116, 245, 57);
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  font-weight: 550;
+  transition: background-color 0.5s ease-in-out;
+
+&:hover {
+  background-color: rgb(40, 12, 53);
+}
+`;
+
+const StyledOption = styled.option`
+`;
+
+
 
 const Favorites = () => {
-  const favoritos = useSelector((state) => state.myFavorites);
+  const favorito = useSelector((state) => state.myFavorites);
+  const favoritos = Object.values(favorito)
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
 
@@ -20,21 +74,22 @@ const Favorites = () => {
 
   return (
     <div>
-      <select onChange={handleOrder}>
-        <option value="A">Ascendente</option>
-        <option value="D">Descendente</option>
-      </select>
-      <select onChange={handleFilter}>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="unknown">unknown</option>
-      </select>
-      <h1>Mis Personajes Favoritos</h1>
+      <Titulo>Mis Personajes Favoritos</Titulo>
+      <StyledSelect onChange={handleOrder}>
+        <StyledOption value="A">Ascendente</StyledOption>
+        <StyledOption value="D">Descendente</StyledOption>
+      </StyledSelect>
+      <StyledSelect onChange={handleFilter}>
+        <StyledOption value="Male">Male</StyledOption>
+        <StyledOption value="Female">Female</StyledOption>
+        <StyledOption value="Genderless">Genderless</StyledOption>
+        <StyledOption value="unknown">unknown</StyledOption>
+      </StyledSelect>
+      <Tarjetas>
       {favoritos.map(({ id, name, species, gender, image, status, origin }) => {
         return (
-          <Card
-            key={id}
+          <FavoriteCard
+            key={`favorite_${id}`}
             id={id}
             name={name}
             status={status}
@@ -45,6 +100,7 @@ const Favorites = () => {
           />
         );
       })}
+      </Tarjetas>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Tarjetas = styled.div`
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: center;
    margin-left: 50px;
    margin-right: 50px;
 `

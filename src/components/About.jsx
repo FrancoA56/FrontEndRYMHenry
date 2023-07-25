@@ -1,5 +1,28 @@
 import styled from "styled-components";
 import foto from "../utils/imagenes/FotoDePerfil.jpg";
+import { keyframes } from "styled-components";
+
+const slideInAnimation = keyframes`
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const slideInAnimationRevez = keyframes`
+  from {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 const Titulo = styled.h1`
   font-size: 5rem;
@@ -14,6 +37,7 @@ const Titulo = styled.h1`
   background-color: rgb(61, 0, 71, 0.5);
   border-radius: 100px;
   transition: background-color 0.5s ease-in-out;
+  animation: ${slideInAnimationRevez} 0.7s ease-in-out;
 
   &:hover {
     background-color: rgb(40, 12, 53);
@@ -62,6 +86,7 @@ const Contenedor = styled.div`
   display: flex;
   margin-top: 60px;
   text-align: justify;
+  animation: ${slideInAnimation} 0.7s ease-in-out;
 `;
 
 export default function About() {
@@ -71,23 +96,22 @@ export default function About() {
       <Contenedor>
         <Imagen src={foto} alt="Imagen Franco Adamoli" />
         <Parrafo>
-          Bienvenido!
+          ¡Bienvenidos!
           <Texto>
-            Me llamo Franco Adamoli y este es mi primer proyecto
-            <div>
-              de inicial en Henry.
-              <div></div>
-              Gracias a ellos tengo la oportunidad de poder investigar y
-              <div>
-                aprender de este mundo tan fascinante que es la programacion
-                web.
-              </div>
-              Espero les guste el diseño que prepare para esta pagina, con mucho
-              esfuerzo y dedicacion, intente dejarla lo mas bonita posible.
-              Acepto toda critica constructiva acerca de ella!
-            </div>
+            Soy Franco Adamoli y me encuentro como estudiante de programación
+            web en Henry. Esta página representa mi primer proyecto en este
+            fascinante mundo. Aquí tengo la maravillosa oportunidad de
+            investigar y aprender, y me siento agradecido por la plataforma que
+            Henry me ofrece para desarrollarme. En especial, quiero compartir
+            con ustedes mi pasión por la programación web. Quise diseñar esta
+            página con esfuerzo y dedicación, buscando reflejar mi esencia de la
+            mejor manera posible. Me siento muy orgulloso de poder mostrarles el
+            resultado. Acepto con gusto cualquier crítica constructiva que
+            tengan acerca de mi trabajo, ya que estoy siempre dispuesto a
+            aprender y mejorar. ¡Espero que disfruten explorando mi página tanto
+            como yo disfruté creándola!
+            <Texto>Gracias por estar aquí.</Texto>
           </Texto>
-          <Texto>PD: Soy sensible, sean buenos.</Texto>
         </Parrafo>
       </Contenedor>
     </div>
