@@ -69,7 +69,7 @@ const NombrePersonaje = styled.h2`
   margin: 0;
   margin-bottom: 0px;
   background-color: rgba(99, 83, 83, 0.5);
-  color: #ffffff;
+  color: rgb(116, 245, 57);
   width: 93.5%;
   height: 15%;
   font-family: "Josefin Sans";

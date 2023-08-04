@@ -59,7 +59,7 @@ const Nombre = styled.div`
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
-  color: rgb(251, 255, 0);
+  color: rgb(116, 245, 57);
   background-color: rgba(61, 0, 71, 0.5);
   margin-left: 40%;
   margin-right: 40%;
@@ -78,7 +78,8 @@ const Stats = styled.div`
   margin-left: 300px;
   font-size: 2rem;
   font-weight: 400;
-  color: rgb(251, 255, 0);
+  color: rgb(116, 245, 57);
+
 `;
 
 const EpisodioStats = styled.div`
@@ -86,7 +87,7 @@ const EpisodioStats = styled.div`
   flex-direction: column;
   font-size: 2rem;
   font-weight: 400;
-  color: rgb(251, 255, 0);
+  color: rgb(116, 245, 57);
   text-align: center;
 `;
 

@@ -16,7 +16,7 @@ const appearAnimation = keyframes`
 `;
 
 const BotonHome = styled(NavLink)`
-  background-color: rgba(4, 4, 65, 0.5);
+  background-color: rgb(4, 4, 65);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -33,7 +33,7 @@ const BotonHome = styled(NavLink)`
 `;
 
 const BotonAbout = styled(NavLink)`
-  background-color: rgba(4, 4, 65, 0.5);
+  background-color: rgb(4, 4, 65);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -47,7 +47,7 @@ const BotonAbout = styled(NavLink)`
 `;
 
 const BotonFavorite = styled(NavLink)`
-  background-color: rgba(4, 4, 65, 0.5);
+  background-color: rgb(4, 4, 65);
   color: white;
   border: none;
   padding: 10px 20px;

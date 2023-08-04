@@ -23,7 +23,7 @@ const InputBusqueda = styled.input`
 `;
 
 const BotonAgregar = styled.button`
-  background-color: rgba(4, 4, 65, 0.5);
+  background-color: rgb(4, 4, 65);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -35,7 +35,7 @@ const BotonAgregar = styled.button`
 `;
 
 const BotonRandom = styled.button`
-  background-color: rgba(4, 4, 65, 0.5);
+  background-color: rgb(4, 4, 65);
   color: white;
   border: none;
   padding: 10px 20px;
