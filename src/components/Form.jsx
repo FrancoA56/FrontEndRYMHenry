@@ -106,6 +106,12 @@ const Errores = Styled.p`
     font-size: 25px;
     text-decoration: none;
     color: rgb(255, 0, 0);
+    background-color: rgb(61, 0, 71, 0.9);
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 `;
 
 export default function Form({ login }) {

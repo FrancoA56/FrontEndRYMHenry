@@ -21,12 +21,13 @@ const Tarjeta = styled.div`
   background-color: rgba(61, 0, 71, 0.5);
   padding-bottom: 50px;
   padding-top: 30px;
-  margin-right: 25%;
-  margin-left: 23%;
+  margin-right: 15%;
+  margin-left: 15%;
   border-radius: 100px;
-  transition: background-color 0.5s ease-in-out;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out;
   &:hover {
-    background-color: rgb(40, 12, 53);
+    background-color: rgb(40, 12, 53, 0.9);
   }
 `;
 
@@ -41,9 +42,9 @@ const TarjetaEpisodios = styled.div`
   border-radius: 100px;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   &:hover {
-    background-color: rgb(40, 12, 53);
+    background-color: rgba(40, 12, 53, 0.9);
   }
 `;
 
@@ -58,24 +59,26 @@ const Nombre = styled.div`
   font-size: 4rem;
   font-weight: bold;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 1%;
   color: rgb(116, 245, 57);
   background-color: rgba(61, 0, 71, 0.5);
-  margin-left: 40%;
-  margin-right: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
   padding-top: 17px;
   padding-bottom: 13px;
   border-radius: 100px;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   &:hover {
-    background-color: rgb(40, 12, 53);
+    background-color: rgb(40, 12, 53, 0.9);
   }
 `;
 
 const Stats = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 300px;
+  right: 0;
+  margin-left: 30%;
+  margin-right: 10%;
   font-size: 2rem;
   font-weight: 400;
   color: rgb(116, 245, 57);
@@ -93,22 +96,25 @@ const EpisodioStats = styled.div`
 
 const Stat = styled.div`
   text-align: center;
+  align-items: center;
   margin-top: 50px;
 `;
 
 const ContenedorImagen = styled.div`
   flex-shrink: 0;
+  align-items: center;
+  padding: 20px;
 `;
 
 const Imagen = styled.img`
-  width: 400px;
+  width: 16  0%;
   margin-top: 30px;
-  margin-left: 30%;
+  margin-left: 50%;
   object-fit: cover;
   border-radius: 40px;
   transition: transform 0.3s ease-in-out;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.3);
     transform-origin: center center;
   }
 `;
@@ -153,8 +159,6 @@ export default function Detail() {
         soloNumeros.push(episodeNumber);
       }
     }
-    console.log(data);
-    console.log(soloNumeros);
     return soloNumeros;
   };
 

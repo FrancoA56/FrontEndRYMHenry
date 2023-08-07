@@ -40,7 +40,7 @@ const Titulo = styled.h1`
   animation: ${slideInAnimationRevez} 0.7s ease-in-out;
 
   &:hover {
-    background-color: rgb(40, 12, 53);
+    background-color: rgb(40, 12, 53, 0.9);
   }
 `;
 
@@ -63,7 +63,7 @@ const Parrafo = styled.h1`
   text-align: center;
 
   &:hover {
-    background-color: rgb(40, 12, 53);
+    background-color: rgb(40, 12, 53, 0.9);
   }
 `;
 
@@ -76,9 +76,9 @@ const Imagen = styled.img`
   height: 20%;
   border-radius: 500px;
   margin-left: 250px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 `;
 

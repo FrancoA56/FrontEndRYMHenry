@@ -25,10 +25,10 @@ const Titulo = styled.h1`
   color: rgb(116, 245, 57);
   background-color: rgb(61, 0, 71, 0.5);
   border-radius: 100px;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: rgb(40, 12, 53);
+    background-color: rgb(40, 12, 53, 0.9);
   }
 `;
 

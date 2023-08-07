@@ -54,7 +54,7 @@ const NombrePersonaje = styled.h2`
   margin: 0;
   margin-bottom: 20px;
   background-color: rgba(99, 83, 83, 0.5);
-  color: #ffffff;
+  color: rgb(116, 245, 57);
   width: 70%;
   font-family: "Josefin Sans";
   font-size: 30px;
@@ -77,7 +77,7 @@ const ContenedorImagen = styled.div`
 `;
 
 const Stat = styled.div`
-  color: #ffffff;
+  color: rgb(116, 245, 57);
   padding: 10px;
   font-size: 150%;
 `;
