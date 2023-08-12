@@ -5,11 +5,11 @@ import { filterCards, orderCards } from "../Redux/actions";
 import styled from "styled-components";
 
 const Tarjetas = styled.div`
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   margin-left: 50px;
-   margin-right: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
 `;
 
 const Titulo = styled.h1`
@@ -28,7 +28,7 @@ const Titulo = styled.h1`
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: rgb(40, 12, 53, 0.9);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
   }
 `;
 
@@ -46,19 +46,22 @@ const StyledSelect = styled.select`
   font-weight: 550;
   transition: background-color 0.5s ease-in-out;
 
-&:hover {
-  background-color: rgb(40, 12, 53);
-}
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
 `;
 
-const StyledOption = styled.option`
+const ContenedorDetalle = styled.div`
+  &:hover ${Titulo}, &:hover ${StyledSelect} {
+    background-color: rgba(40, 12, 53, 0.9);
+  }
 `;
 
-
+const StyledOption = styled.option``;
 
 const Favorites = () => {
   const favorito = useSelector((state) => state.myFavorites);
-  const favoritos = Object.values(favorito)
+  const favoritos = Object.values(favorito);
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
 
@@ -74,32 +77,36 @@ const Favorites = () => {
 
   return (
     <div>
-      <Titulo>Mis Personajes Favoritos</Titulo>
-      <StyledSelect onChange={handleOrder}>
-        <StyledOption value="A">Ascendente</StyledOption>
-        <StyledOption value="D">Descendente</StyledOption>
-      </StyledSelect>
-      <StyledSelect onChange={handleFilter}>
-        <StyledOption value="Male">Male</StyledOption>
-        <StyledOption value="Female">Female</StyledOption>
-        <StyledOption value="Genderless">Genderless</StyledOption>
-        <StyledOption value="unknown">unknown</StyledOption>
-      </StyledSelect>
+      <ContenedorDetalle>
+        <Titulo>Mis Personajes Favoritos</Titulo>
+        <StyledSelect onChange={handleOrder}>
+          <StyledOption value="A">Ascendente</StyledOption>
+          <StyledOption value="D">Descendente</StyledOption>
+        </StyledSelect>
+        <StyledSelect onChange={handleFilter}>
+          <StyledOption value="Male">Male</StyledOption>
+          <StyledOption value="Female">Female</StyledOption>
+          <StyledOption value="Genderless">Genderless</StyledOption>
+          <StyledOption value="unknown">unknown</StyledOption>
+        </StyledSelect>
+      </ContenedorDetalle>
       <Tarjetas>
-      {favoritos.map(({ id, name, species, gender, image, status, origin }) => {
-        return (
-          <FavoriteCard
-            key={`favorite_${id}`}
-            id={id}
-            name={name}
-            status={status}
-            gender={gender}
-            species={species}
-            image={image}
-            origin={origin}
-          />
-        );
-      })}
+        {favoritos.map(
+          ({ id, name, species, gender, image, status, origin }) => {
+            return (
+              <FavoriteCard
+                key={`favorite_${id}`}
+                id={id}
+                name={name}
+                status={status}
+                gender={gender}
+                species={species}
+                image={image}
+                origin={origin}
+              />
+            );
+          }
+        )}
       </Tarjetas>
     </div>
   );

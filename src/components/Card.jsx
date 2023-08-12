@@ -29,6 +29,7 @@ const BotonClose = styled.button`
   top: 0;
   padding-left: 10px;
   font-size: 30px;
+  cursor: pointer;
 `;
 
 const BotonFav = styled.button`
@@ -40,6 +41,7 @@ const BotonFav = styled.button`
   top: 0;
   padding: 5px;
   font-size: 35px;
+  cursor: pointer;
 `;
 
 const Carta = styled.div`
@@ -56,9 +58,10 @@ const Carta = styled.div`
   animation: ${appearAnimation} 0.3s ease-in-out;
   transition: background-color 0.5s ease-in-out;
 
-&:hover {
-  background-color: rgb(40, 12, 53);
-}
+  &:hover {
+    background-color: rgb(40, 12, 53);
+    box-shadow: 0 0 80px rgba(0, 255, 0, 0.7);
+  }
 `;
 
 const NombrePersonaje = styled.h2`

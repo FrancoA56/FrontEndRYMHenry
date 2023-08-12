@@ -25,9 +25,9 @@ const Tarjeta = styled.div`
   margin-left: 15%;
   border-radius: 100px;
   align-items: center;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
   &:hover {
-    background-color: rgb(40, 12, 53, 0.9);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
   }
 `;
 
@@ -36,15 +36,13 @@ const TarjetaEpisodios = styled.div`
   margin-top: 40px;
   background-color: rgba(61, 0, 71, 0.5);
   padding-bottom: 50px;
-  /* padding-top: 30px; */
-  margin-left: 23%;
+  transition: background-color 0.5s ease-in-out;  margin-left: 23%;
   margin-right: 25%;
   border-radius: 100px;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease-in-out;
   &:hover {
-    background-color: rgba(40, 12, 53, 0.9);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
   }
 `;
 
@@ -66,10 +64,10 @@ const Nombre = styled.div`
   margin-right: 30%;
   padding-top: 17px;
   padding-bottom: 13px;
+  transition: background-color 0.5s ease-in-out;
   border-radius: 100px;
-  transition: background-color 0.2s ease-in-out;
   &:hover {
-    background-color: rgb(40, 12, 53, 0.9);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
   }
 `;
 
@@ -82,7 +80,6 @@ const Stats = styled.div`
   font-size: 2rem;
   font-weight: 400;
   color: rgb(116, 245, 57);
-
 `;
 
 const EpisodioStats = styled.div`
@@ -107,26 +104,32 @@ const ContenedorImagen = styled.div`
 `;
 
 const Imagen = styled.img`
-  width: 16  0%;
+  width: 16 0%;
   margin-top: 30px;
   margin-left: 50%;
   object-fit: cover;
   border-radius: 40px;
   transition: transform 0.3s ease-in-out;
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.5);
     transform-origin: center center;
   }
 `;
 
-const MAX_EPISODES_DISPLAY = 25;
-  const truncateEpisodes = (episodes) => {
-    if(episodes.length > MAX_EPISODES_DISPLAY){
-      const truncatedEpisodes = episodes.slice(0, MAX_EPISODES_DISPLAY);
-      return [...truncatedEpisodes, "..."];
-    }
-    return episodes;
+const ContenedorDetalle = styled.div`
+  &:hover ${Nombre}, &:hover ${Tarjeta}, &:hover ${TarjetaEpisodios} {
+    background-color: rgba(40, 12, 53, 0.9);
   }
+`;
+
+const MAX_EPISODES_DISPLAY = 25;
+const truncateEpisodes = (episodes) => {
+  if (episodes.length > MAX_EPISODES_DISPLAY) {
+    const truncatedEpisodes = episodes.slice(0, MAX_EPISODES_DISPLAY);
+    return [...truncatedEpisodes, "..."];
+  }
+  return episodes;
+};
 
 export default function Detail() {
   const [character, setCharacter] = useState({});
@@ -165,30 +168,31 @@ export default function Detail() {
   const epi = episodios(character);
   const truncatedEpisodes = truncateEpisodes(epi);
   const EPI = truncatedEpisodes.join(",");
-  
 
   return (
     <ContenedorTarjeta>
       {character.name && (
         <>
-          <Nombre>{character.name}</Nombre>
-          <Tarjeta>
-            <ContenedorImagen>
-              <Imagen src={character.image} alt={character.name} />
-            </ContenedorImagen>
-            <Stats>
-              <Stat>Status: {character.status}</Stat>
-              <Stat>Specie: {character.species}</Stat>
-              <Stat>Gender: {character.gender}</Stat>
-              <Stat>Origin: {character.origin}</Stat>
-              <Stat>Location: {character.location}</Stat>
-            </Stats>
-          </Tarjeta>
-          <TarjetaEpisodios>
-            <EpisodioStats>
-              <Stat>Episodios: {EPI}</Stat>
-            </EpisodioStats>
-          </TarjetaEpisodios>
+          <ContenedorDetalle>
+            <Nombre>{character.name}</Nombre>
+            <Tarjeta>
+              <ContenedorImagen>
+                <Imagen src={character.image} alt={character.name} />
+              </ContenedorImagen>
+              <Stats>
+                <Stat>Status: {character.status}</Stat>
+                <Stat>Specie: {character.species}</Stat>
+                <Stat>Gender: {character.gender}</Stat>
+                <Stat>Origin: {character.origin}</Stat>
+                <Stat>Location: {character.location}</Stat>
+              </Stats>
+            </Tarjeta>
+            <TarjetaEpisodios>
+              <EpisodioStats>
+                <Stat>Episodios: {EPI}</Stat>
+              </EpisodioStats>
+            </TarjetaEpisodios>
+          </ContenedorDetalle>
         </>
       )}
     </ContenedorTarjeta>

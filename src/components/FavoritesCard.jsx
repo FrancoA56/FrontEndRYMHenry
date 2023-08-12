@@ -25,6 +25,7 @@ const BotonFav = styled.button`
   top: 0;
   padding: 5px;
   font-size: 35px;
+  cursor: pointer;
 `;
 
 const Carta = styled.div`
@@ -43,6 +44,7 @@ const Carta = styled.div`
 
   &:hover {
     background-color: rgb(40, 12, 53);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
   }
 `;
 

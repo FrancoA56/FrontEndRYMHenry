@@ -16,6 +16,9 @@ const BotonHome = styled(NavLink)`
   text-decoration: none;
   top: 10px;
   left: 20px;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
 `;
 
 const BotonAbout = styled(NavLink)`
@@ -32,6 +35,9 @@ const BotonAbout = styled(NavLink)`
   top: 45px;
   left: -94px;
   position: relative;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
 `;
 
 const BotonFavorite = styled(NavLink)`
@@ -48,6 +54,9 @@ const BotonFavorite = styled(NavLink)`
   top: 90px;
   position: relative;
   left: -189px;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
 `;
 
 const BotonSalir = styled(NavLink)`
@@ -61,9 +70,12 @@ const BotonSalir = styled(NavLink)`
   font-size: 20px;
   text-decoration: none;
   position: relative;
-  top: 135px;
-  left: -311px;
+  top: 0;
+  left: -150px;
   background: linear-gradient(45deg, #000000, #4b0a84, #000000);
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
 `;
 
 const Titulo = styled.h1`
@@ -90,30 +102,6 @@ const ContenedorBotones = styled.div`
   top: 30px;
 `;
 
-const Bienvenido = styled.div`
-  font-family: "Josefin Sans";
-  color: rgb(0, 255, 0);
-  font-size: 300%;
-  text-align: center;
-  position: absolute;
-  padding-top: 10px;
-  border-radius: 10px;
-  top: 20px;
-  right: 70%;
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-top: 20px;
-  background: linear-gradient(45deg, #000000, #4b0a84, #000000);
-  @media (max-width: 1100px) {
-    visibility: hidden;
-  }
-`;
-
-const Usuario = styled.div`
-  padding: 10px;
-  font-family: "Get Schwifty";
-
-`;
 
 export default function Nav({ onSearch }) {
   const location = useLocation();
@@ -137,10 +125,6 @@ export default function Nav({ onSearch }) {
             Cerrar Sesion
           </BotonSalir>
         </ContenedorBotones>
-        <Bienvenido>
-          Hola
-          <Usuario>Franco</Usuario>
-        </Bienvenido>
         <Titulo>rick and morty</Titulo>
         {showSearchBar && <SearchBar onSearch={onSearch} />}
       </ContenedorNav>

@@ -41,6 +41,7 @@ const Titulo = styled.h1`
 
   &:hover {
     background-color: rgb(40, 12, 53, 0.9);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
   }
 `;
 
@@ -59,11 +60,12 @@ const Parrafo = styled.h1`
   padding-left: 70px;
   padding-right: 70px;
   border-radius: 100px;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
   text-align: center;
 
   &:hover {
     background-color: rgb(40, 12, 53, 0.9);
+    box-shadow: 20px 20px 0px rgba(0, 255, 0, 0.7);
   }
 `;
 
@@ -79,6 +81,7 @@ const Imagen = styled.img`
   transition: transform 0.5s ease-in-out;
   &:hover {
     transform: scale(1.4);
+    box-shadow: 0 0 80px rgba(150, 47, 210, 0.8);
   }
 `;
 

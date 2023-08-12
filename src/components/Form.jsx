@@ -43,7 +43,7 @@ const Input = Styled.input`
 `;
 
 const Button = Styled.button`
-    background-color: rgba(4, 4, 65, 0.5);
+    background-image: linear-gradient(45deg, #000000, #4b0a84, #000000);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -54,7 +54,15 @@ const Button = Styled.button`
     font-size: 200%;
     text-decoration: none;
     margin-top: 60px;
+    transition: background-image 1s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    &:hover {
+      background-image: linear-gradient(45deg, #ffffff, #b055ff, #ffffff);
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+      color : black;
+      font-size: 300%;
+    }
 `;
+
 
 const FormContainer = Styled.div`
     display: flex;
@@ -66,6 +74,14 @@ const FormContainer = Styled.div`
     margin-right: 32%;
     padding: 100px;
     border-radius: 100px;
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+      background-color: rgba(61, 0, 71, 0.7);
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    }
+    &:focus-within {
+    background-color: rgba(61, 0, 71, 0.9);
+  }
 
 `;
 

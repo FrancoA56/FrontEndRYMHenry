@@ -10,6 +10,14 @@ const BarraDeBusqueda = styled.div`
   top: 5%;
   right: 3%;
   border-radius: 10px;
+  transition: background-color 0.5s ease-in-out;
+  &:hover {
+    background-color: rgba(73, 39, 101, 0.6);
+  }
+
+  &:focus-within {
+    background-color: rgba(59, 17, 94, 0.9);
+  }
 `;
 
 const InputBusqueda = styled.input`
@@ -36,6 +44,9 @@ const BotonAgregar = styled.button`
   font-family: "Josefin Sans";
   font-weight: 400;
   font-size: 20px;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
 `;
 
 const BotonRandom = styled.button`
@@ -49,14 +60,29 @@ const BotonRandom = styled.button`
   font-weight: 400;
   font-size: 20px;
   margin-left: 10px;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
 `;
 
 export default function SearchBar({ onSearch }) {
-  const [id, setId] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [usedIds, setUsedIds] = useState([]);
 
   const handleOnChange = (e) => {
-    setId(e.target.value);
+    setSearchValue(e.target.value);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      if (!isNaN(searchValue)) {
+        // Si el valor ingresado es un número, busca por ID
+        onSearch(searchValue, "id");
+      } else {
+        // Si el valor ingresado no es un número, busca por nombre
+        onSearch(searchValue, "name");
+      }
+    }
   };
 
   const handleRandomClick = () => {
@@ -65,16 +91,25 @@ export default function SearchBar({ onSearch }) {
     while (usedIds.includes(randomId)) {
       randomId = Math.floor(Math.random() * maxId) + 1;
     }
-    setId(randomId.toString());
-    onSearch(randomId);
+    setSearchValue("");
+    onSearch(randomId, "id");
     setUsedIds([...usedIds, randomId]);
   };
 
   return (
     <BarraDeBusqueda>
-      <InputBusqueda type="search" onChange={handleOnChange} />
-      <BotonAgregar onClick={() => onSearch(id)}>Agregar</BotonAgregar>
+      <InputBusqueda
+        type="search"
+        value={searchValue}
+        onChange={handleOnChange}
+        onKeyDown={handleKeyPress}
+        placeholder="ID o Name"
+      />
+      <BotonAgregar onClick={() => handleKeyPress({ key: "Enter" })}>
+        Agregar
+      </BotonAgregar>
       <BotonRandom onClick={handleRandomClick}>?</BotonRandom>
     </BarraDeBusqueda>
   );
 }
+
