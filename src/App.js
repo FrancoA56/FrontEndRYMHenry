@@ -5,6 +5,7 @@ import About from "./components/About";
 import Detail from "./components/Detail";
 import Form from "./components/Form";
 import Favorites from "./components/Favorites";
+import FormRegister from "./components/FormRegister";
 import { useState, useEffect } from "react";
 import { GlobalStyle } from "./utils/letras";
 import axios from "axios";
@@ -16,10 +17,13 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const showNavBar = location.pathname === "/";
+  const ShowNavBarII = location.pathname === "/register";
 
   useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
+    if (!access && location.pathname !== "/register") {
+      navigate("/");
+    }
+  }, [access, navigate, location.pathname]);
 
   const URL = "http://localhost:3001/rickandmorty/";
 
@@ -31,6 +35,15 @@ export default function App() {
       const { access } = data.data;
       setAccess(access);
       access && navigate("/home");
+    } catch (error) {
+      window.alert(error.message);
+    }
+  };
+
+  const register = async (userData) => {
+    try {
+      await axios.post(`${URL}register`, userData);
+      navigate("/register");
     } catch (error) {
       window.alert(error.message);
     }
@@ -61,9 +74,13 @@ export default function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      {!showNavBar && <Nav onSearch={onSearch} />}
+      {!showNavBar && !ShowNavBarII && <Nav onSearch={onSearch} />}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
+        <Route
+          path="/register"
+          element={<FormRegister register={register} />}
+        />
         <Route path="/about" element={<About />} />
         <Route
           path="/home"

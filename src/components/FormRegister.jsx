@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Styled from "styled-components";
 import { Validate } from "./validation";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const Titulo = Styled.h1`
     font-size: 2.5rem;
@@ -63,26 +63,6 @@ const Button = Styled.button`
       font-size: 300%;
     }
 `;
-const Registrarse = Styled(NavLink)`
-    background-image: linear-gradient(45deg, #000000, #4b0a84, #000000);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Josefin Sans';
-    font-weight: 400;
-    font-size: 200%;
-    text-decoration: none;
-    margin-top: 30px;
-    transition: background-image 1s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
-    &:hover {
-      background-image: linear-gradient(45deg, #ffffff, #b055ff, #ffffff);
-      box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
-      color : black;
-    }
-`;
-
 
 const FormContainer = Styled.div`
     display: flex;
@@ -162,9 +142,29 @@ const Texto = Styled.div`
 const Texto2 = Styled.div`
   align-items: center;
   display: flex;
-`
+`;
 
-export default function Form({ login }) {
+const Registrarse = Styled(NavLink)`
+    background-image: linear-gradient(45deg, #000000, #4b0a84, #000000);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Josefin Sans';
+    font-weight: 400;
+    font-size: 200%;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: background-image 1s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+    &:hover {
+      background-image: linear-gradient(45deg, #ffffff, #b055ff, #ffffff);
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+      color : black;
+    }
+`;
+
+export default function Form({ register }) {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
@@ -188,19 +188,20 @@ export default function Form({ login }) {
     );
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    login(userData);
+    try {
+      await register(userData);
+      alert("Cuenta creada exitosamente.");
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
   }
-
-  // function handleRegister(event) {
-  //   event.preventDefault();
-  //   navigate("/register");
-  // }
 
   return (
     <>
-      <Titulo>Inicia Sesion!</Titulo>
+      <Titulo>Crea tu usuario!</Titulo>
       <FormContainer>
         <Formulario onSubmit={handleSubmit}>
           <Usuario>
@@ -233,10 +234,10 @@ export default function Form({ login }) {
             />
             {errors.password && <Errores>{errors.password}</Errores>}
           </Constrasenia>
-          <Button type="submit">Ingresar</Button>
+          <Button type="submit">Crear cuenta</Button>
           <Texto2>
-          <Texto>No tienes cuenta?</Texto>
-          <Registrarse to="/register">Registrate</Registrarse>
+            <Texto>Ya tienes cuenta?</Texto>
+            <Registrarse to="/">Logueate</Registrarse>
           </Texto2>
         </Formulario>
       </FormContainer>
