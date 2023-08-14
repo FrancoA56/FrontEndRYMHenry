@@ -1,5 +1,5 @@
-Usuario : Franco;
+FRONT END app --> RICK AND MORTY.
 
-Email: franco.adamoli@gmail.com;
+Para iniciar la aplicacion es necesario instalar las dependencias (npm install) y luego levantar la aplicacion (npm start).
 
-Contraseña: amarillo6;
+IMPORTANTE!: levantar primero el servidor (BACK END)
