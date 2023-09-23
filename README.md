@@ -4,4 +4,4 @@
 
 <h4>Para iniciar la aplicacion es necesario instalar las dependencias (npm install) y luego levantar la aplicacion (npm start).</h4>
 
-<h5>IMPORTANTE!: levantar primero el servidor del repositorio BackEndRYMHenry</h5>
+<h5>IMPORTANTE!: Levantar primero el servidor del repositorio BackEndRYMHenry</h5>
